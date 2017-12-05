@@ -56,31 +56,40 @@ let Results = observer(({node}) => (
         : 'No Results'}
     </h1>
     <table>
-      <tr>
-        {_.flow(
-          _.get('context.response.results[0]._source'),
-          _.keys,
-          _.map(F.autoLabel),
-          _.map(x => <th>{x}</th>)
-        )(node)}
-      </tr>
-      {_.map(
-        result => (
-          <tr>
-            {_.map(x => <td>{JSON.stringify(x)}</td>, _.values(result._source))}
-          </tr>
-        ),
-        node.context.response.results
-      )}
+      <thead>
+        <tr>
+          {_.flow(
+            _.get('context.response.results[0]._source'),
+            _.keys,
+            _.map(F.autoLabel),
+            _.map(x => <th>{x}</th>)
+          )(node)}
+        </tr>
+      </thead>
+      <tbody>
+        {_.map(
+          result => (
+            <tr key={result._id}>
+              {_.map(
+                x => <td>{JSON.stringify(x)}</td>,
+                _.values(result._source)
+              )}
+            </tr>
+          ),
+          node.context.response.results
+        )}
+      </tbody>
     </table>
   </div>
 ))
 
 
-export default () => <div>
+export default observer(() => <div>
   <SearchRoot
     tree={tree}
     types={Types}
   />
   <Results node={tree.getNode(['root', 'results'])} />
+  <pre>{JSON.stringify(tree, null, 2)}</pre>
 </div>
+)
