@@ -17,13 +17,18 @@
     "react-dom": "15.6.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "1.0.7",
+    "@storybook/react": "^3.2.17",
+    "@storybook/addon-actions": "^3.2.17",
+    "@storybook/addon-links": "^3.2.17"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "npm run build && npm run static-server",
-    "static-server": "serve build --port 3000 --single"
+    "static-server": "serve build --port 3000 --single",
+    "storybook": "start-storybook -p 3000 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "standard": {
     "env": [
