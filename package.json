@@ -8,7 +8,7 @@
     "bootstrap": "4.0.0-alpha.6",
     "contexture": "0.0.5",
     "contexture-client": "^1.0.2",
-    "contexture-react": "^0.1.3",
+    "contexture-react": "^0.1.4",
     "contexture-elasticsearch": "^0.1.4",
     "elasticsearch-browser": "^14.0.0",
     "futil-js": "^1.35.0",
