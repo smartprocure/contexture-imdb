@@ -40,7 +40,10 @@ let searchTree = observable({
   ],
 })
 
-let tree = mobxSearchTree(searchTree, searchService)
+let tree = mobxSearchTree(searchTree, async dto => ({
+  data: await searchService(dto)
+}))
+
 let Results = observer(({ tree }) => <b>{JSON.stringify(tree.getNode(['root', 'results']).context)}</b>)
 
 export default () => <div>
