@@ -1,0 +1,41 @@
+{
+  "name": "contexture-imdb",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@highweb/bootstrap-kit": "^4.0.1",
+    "babel-polyfill": "^6.26.0",
+    "bootstrap": "4.0.0-alpha.6",
+    "contexture": "0.0.5",
+    "contexture-client": "^1.0.2",
+    "contexture-elasticsearch": "^0.1.4",
+    "elasticsearch-browser": "^14.0.0",
+    "futil-js": "^1.35.0",
+    "lodash": "4.17.4",
+    "mobx": "3.1.16",
+    "mobx-react": "4.2.1",
+    "moment": "2.19.1",
+    "react": "15.6.1",
+    "react-spinkit": "3.0.0",
+    "reactstrap": "4.6.2"
+  },
+  "devDependencies": {
+    "enzyme": "2.9.0",
+    "react-scripts": "1.0.7",
+    "react-test-renderer": "15.6.1",
+    "react-transition-group": "1.2.0"
+  },
+  "scripts": {
+    "build": "npm run build-css && npm run metagen && react-scripts build",
+    "deploy": "npm run build && npm run static-server",
+    "static-server": "serve build --port 3000 --single"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "**/__all.js"
+    ]
+  }
+}
