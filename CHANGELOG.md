@@ -1,4 +1,8 @@
-﻿# 0.0.2
+﻿# 0.0.3
+
+- Fixed storybook's building of create-react-app's output.
+
+# 0.0.2
 
 - Added CI tools.
 
