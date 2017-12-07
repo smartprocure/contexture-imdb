@@ -15,6 +15,9 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: lint
+          command: npm run lint-ci
+      - run:
           name: pre-danger
           command: git config user.email "drodriguez@smartprocure.us" && git config user.name "Decrapifier" && git config push.default upstream && git branch -u origin/$CIRCLE_BRANCH
           when: always

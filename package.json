@@ -33,6 +33,7 @@
     "duti:fix": "npm run lint-fix && npm run fmt",
     "fmt": "prettier --write '{src,stories,__tests__,.storybook}/**/*'",
     "lint": "eslint src stories .storybook .circleci __tests__",
+    "lint-ci": "npm run lint -- -o lint-results.json -f json",
     "lint-fix": "npm run lint -- --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
