@@ -17,10 +17,11 @@
     "react-dom": "15.6.1"
   },
   "devDependencies": {
-    "react-scripts": "1.0.7",
-    "@storybook/react": "^3.2.17",
     "@storybook/addon-actions": "^3.2.17",
-    "@storybook/addon-links": "^3.2.17"
+    "@storybook/addon-links": "^3.2.17",
+    "@storybook/react": "^3.2.17",
+    "@storybook/storybook-deployer": "^2.0.0",
+    "react-scripts": "1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,7 +29,8 @@
     "deploy": "npm run build && npm run static-server",
     "static-server": "serve build --port 3000 --single",
     "storybook": "start-storybook -p 3000 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "standard": {
     "env": [
@@ -37,5 +39,8 @@
     "ignore": [
       "**/__all.js"
     ]
+  },
+  "storybook-deployer": {
+    "commitMessage": "Deploy Storybook [ci skip]"
   }
 }
