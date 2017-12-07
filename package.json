@@ -17,16 +17,23 @@
     "react-dom": "15.6.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.2",
     "duti": "^0.9.3",
+    "eslint": "^4.12.1",
+    "eslint-config-smartprocure": "^1.1.0",
     "@storybook/addon-actions": "^3.2.17",
     "@storybook/addon-links": "^3.2.17",
     "@storybook/react": "^3.2.17",
     "@storybook/storybook-deployer": "^2.0.0",
+    "prettier": "^1.8.2",
     "react-scripts": "1.0.7"
   },
   "scripts": {
     "duti": "duti",
     "duti:fix": "npm run lint-fix && npm run fmt",
+    "fmt": "prettier --write '{src,stories,__tests__,.storybook}/**/*'",
+    "lint": "eslint src stories .storybook .circleci __tests__",
+    "lint-fix": "npm run lint -- --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "deploy": "npm run build && npm run static-server",
@@ -34,14 +41,6 @@
     "storybook": "start-storybook -p 3000 -s public",
     "build-storybook": "build-storybook -s public",
     "deploy-storybook": "storybook-to-ghpages"
-  },
-  "standard": {
-    "env": [
-      "jest"
-    ],
-    "ignore": [
-      "**/__all.js"
-    ]
   },
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [ci skip]"
