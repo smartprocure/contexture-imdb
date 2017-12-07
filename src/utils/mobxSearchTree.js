@@ -7,7 +7,7 @@ export default (tree, service) =>
     service,
     undefined,
     {
-      debug: true,
+      // debug: true,
       snapshot: toJS,
       extend: extendObservable
     })
