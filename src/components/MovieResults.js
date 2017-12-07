@@ -30,7 +30,7 @@ let searchTree = observable({
       type: 'results',
       config: {
         pageSize: 10,
-        page: 1
+        page: 1,
       },
       context: {
         response: {
@@ -43,10 +43,10 @@ let searchTree = observable({
 })
 
 let tree = mobxSearchTree(searchTree, async dto => ({
-  data: await searchService(dto)
+  data: await searchService(dto),
 }))
 
-let Results = observer(({node}) => (
+let Results = observer(({ node }) => (
   <div>
     <h1>
       {node.context.response.results.length
@@ -83,13 +83,10 @@ let Results = observer(({node}) => (
   </div>
 ))
 
-
-export default observer(() => <div>
-  <SearchRoot
-    tree={tree}
-    types={Types}
-  />
-  <Results node={tree.getNode(['root', 'results'])} />
-  <pre>{JSON.stringify(tree, null, 2)}</pre>
-</div>
-)
+export default observer(() => (
+  <div>
+    <SearchRoot tree={tree} types={Types} />
+    <Results node={tree.getNode(['root', 'results'])} />
+    <pre>{JSON.stringify(tree, null, 2)}</pre>
+  </div>
+))
