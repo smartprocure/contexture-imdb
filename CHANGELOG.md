@@ -1,4 +1,8 @@
-﻿# 0.0.3
+﻿# 0.0.4
+
+- The search now works with facet and query types.
+
+# 0.0.3
 
 - Fixed storybook's building of create-react-app's output.
 
