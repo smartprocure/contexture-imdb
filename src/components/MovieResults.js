@@ -16,14 +16,30 @@ let searchTree = observable({
   schema: 'imdb',
   children: [
     {
-      key: 'classFacet',
-      type: 'facet',
-      filterOnly: true,
-      field: 'title',
-      data: {
-        values: [],
-        fieldMode: 'field',
-      },
+      key: 'searchRoot',
+      type: 'group',
+      join: 'and',
+      children: [
+        {
+          key: 'searchQuery',
+          type: 'query',
+          field: 'title',
+          data: {
+            query: 'rabbit',
+          },
+        },
+        {
+          key: 'searchFacet',
+          type: 'facet',
+          field: 'imdbRating',
+          data: {
+            fieldMode: 'word',
+          },
+          context: {
+            options: [],
+          },
+        },
+      ],
     },
     {
       key: 'results',
@@ -62,16 +78,20 @@ let Results = observer(({ node }) => (
             _.get('context.response.results[0]._source'),
             _.keys,
             _.map(F.autoLabel),
-            _.map(x => <th>{x}</th>)
+            _.map(x => <th key={x}>{x}</th>)
           )(node)}
         </tr>
       </thead>
       <tbody>
         {_.map(
           result => (
-            <tr key={result._id}>
+            <tr key={_.uniqueId(result._id)}>
               {_.map(
-                x => <td>{JSON.stringify(x)}</td>,
+                x => (
+                  <td key={_.uniqueId(JSON.stringify(x))}>
+                    {JSON.stringify(x)}
+                  </td>
+                ),
                 _.values(result._source)
               )}
             </tr>
@@ -85,7 +105,7 @@ let Results = observer(({ node }) => (
 
 export default observer(() => (
   <div>
-    <SearchRoot tree={tree} types={Types} />
+    <SearchRoot tree={tree} types={Types} path={['root', 'searchRoot']} />
     <Results node={tree.getNode(['root', 'results'])} />
     <pre>{JSON.stringify(tree, null, 2)}</pre>
   </div>
