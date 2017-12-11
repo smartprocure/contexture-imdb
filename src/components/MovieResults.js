@@ -25,7 +25,7 @@ let searchTree = observable({
           type: 'query',
           field: 'title',
           data: {
-            query: 'rabbit'
+            query: 'rabbit',
           },
         },
         {
@@ -33,13 +33,13 @@ let searchTree = observable({
           type: 'facet',
           field: 'imdbRating',
           data: {
-            fieldMode: 'word'
+            fieldMode: 'word',
           },
           context: {
-            options: []
-          }
-        }
-      ]
+            options: [],
+          },
+        },
+      ],
     },
     {
       key: 'results',
@@ -87,7 +87,11 @@ let Results = observer(({ node }) => (
           result => (
             <tr key={_.uniqueId(result._id)}>
               {_.map(
-                x => <td key={_.uniqueId(JSON.stringify(x))}>{JSON.stringify(x)}</td>,
+                x => (
+                  <td key={_.uniqueId(JSON.stringify(x))}>
+                    {JSON.stringify(x)}
+                  </td>
+                ),
                 _.values(result._source)
               )}
             </tr>
