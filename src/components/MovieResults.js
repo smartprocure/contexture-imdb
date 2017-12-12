@@ -31,7 +31,7 @@ let searchTree = observable({
         {
           key: 'searchFacet',
           type: 'facet',
-          field: 'imdbRating',
+          field: 'genres.keyword',
           data: {
             fieldMode: 'word',
           },
