@@ -1,13 +1,13 @@
 {
   "name": "contexture-imdb",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "private": true,
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "contexture": "^0.1.0",
-    "contexture-client": "^1.0.5",
+    "contexture-client": "^2.0.0",
     "contexture-elasticsearch": "^0.1.4",
-    "contexture-react": "^0.1.7",
+    "contexture-react": "^0.2.1",
     "elasticsearch-browser": "^14.0.0",
     "futil-js": "^1.38.0",
     "lodash": "4.17.4",
