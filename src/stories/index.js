@@ -1,7 +1,6 @@
 import 'babel-polyfill'
 import React from 'react'
 import _ from 'lodash/fp'
-import * as F from 'futil-js'
 import {storiesOf} from '@storybook/react'
 import MovieResults from '../components/MovieResults'
 import SearchRoot from 'contexture-react/dist/components/SearchRoot'
