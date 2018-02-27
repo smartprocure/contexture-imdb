@@ -5,7 +5,7 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "contexture": "^0.1.0",
-    "contexture-client": "^2.0.0",
+    "contexture-client": "^2.2.2",
     "contexture-elasticsearch": "^0.1.4",
     "contexture-react": "^0.2.1",
     "elasticsearch-browser": "^14.0.0",
