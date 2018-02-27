@@ -19,7 +19,8 @@ export default Contexture({
         elasticsearch.Client({
           apiVersion: '6.0',
           host:
-            'https://y85ukgvi1w:4s1cvayng9@first-cluster-5089088915.us-east-1.bonsaisearch.net',
+            'http://35.163.200.173:9200/'
+            // 'https://y85ukgvi1w:4s1cvayng9@first-cluster-5089088915.us-east-1.bonsaisearch.net',
         })
       ),
       types: contextureESTypes(),
