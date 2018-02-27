@@ -1,6 +1,6 @@
 import _ from 'lodash/fp'
-import {ContextTree, exampleTypes} from 'contexture-client'
-import {observable, toJS, extendObservable} from 'mobx'
+import { ContextTree, exampleTypes } from 'contexture-client'
+import { observable, toJS, extendObservable } from 'mobx'
 import service from './searchService'
 
 export default _.flow(

@@ -8,7 +8,7 @@ export default (tree, service) =>
       snapshot: toJS,
       extend: extendObservable,
       service,
-      debounce: 500
+      debounce: 500,
     },
     tree
   )

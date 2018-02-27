@@ -1,12 +1,12 @@
 import 'babel-polyfill'
 import React from 'react'
 import _ from 'lodash/fp'
-import {storiesOf} from '@storybook/react'
+import { storiesOf } from '@storybook/react'
 import MovieResults from '../components/MovieResults'
 import SearchRoot from 'contexture-react/dist/components/SearchRoot'
 import Types from 'contexture-react/dist/exampleTypes'
-import {observable} from 'mobx'
-import {observer, Provider} from 'mobx-react'
+import { observable } from 'mobx'
+import { observer, Provider } from 'mobx-react'
 import searchService from '../utils/searchService'
 import mobxSearchTree from '../utils/mobxSearchTree'
 
@@ -73,7 +73,7 @@ import {
   InjectTreeNode,
   Styles,
 } from 'contexture-react/dist/example-types/components'
-import {Flex} from 'contexture-react/dist/example-types/Flex'
+import { Flex } from 'contexture-react/dist/example-types/Flex'
 
 let tree2 = Contexture({
   key: 'searchRoot',
@@ -141,13 +141,13 @@ let tree2 = Contexture({
 })
 
 let IMDBCards = InjectTreeNode(
-  observer(({node}) => (
-    <Flex style={{flexWrap: 'wrap', justifyContent: 'center'}}>
+  observer(({ node }) => (
+    <Flex style={{ flexWrap: 'wrap', justifyContent: 'center' }}>
       {_.map(
-        ({_id, _source: {title, poster}}) => (
-          <div key={_id} style={{margin: '5px', textAlign: 'center'}}>
+        ({ _id, _source: { title, poster } }) => (
+          <div key={_id} style={{ margin: '5px', textAlign: 'center' }}>
             <img src={poster} width="180" height="270" />
-            <div style={{width: '180px'}}>{title}</div>
+            <div style={{ width: '180px' }}>{title}</div>
           </div>
         ),
         node.context.response.results
@@ -172,10 +172,11 @@ storiesOf('IMDB', module)
         color: '#AAA',
         padding: '20px',
         borderRadius: '10px',
-      }}>
+      }}
+    >
       <Styles />
       <Provider tree={tree2}>
-        <div style={{fontSize: '18px'}}>
+        <div style={{ fontSize: '18px' }}>
           <Query
             style={{
               width: '700px',
@@ -184,30 +185,30 @@ storiesOf('IMDB', module)
             path={['searchRoot', 'searchQuery']}
           />
           <Flex>
-            <div style={{flex: 1}}>
-              <div style={{margin: '5px'}}>
+            <div style={{ flex: 1 }}>
+              <div style={{ margin: '5px' }}>
                 <b>MetaScore</b>
                 <Range
-                  style={{padding: '10px'}}
+                  style={{ padding: '10px' }}
                   path={['searchRoot', 'searchRange']}
                 />
               </div>
-              <div style={{margin: '5px'}}>
+              <div style={{ margin: '5px' }}>
                 <b>Genre</b>
                 <Facet
-                  style={{padding: '10px'}}
+                  style={{ padding: '10px' }}
                   path={['searchRoot', 'searchFacet']}
                 />
               </div>
-              <div style={{margin: '5px'}}>
+              <div style={{ margin: '5px' }}>
                 <b>Actors</b>
                 <Facet
-                  style={{padding: '10px'}}
+                  style={{ padding: '10px' }}
                   path={['searchRoot', 'searchActors']}
                 />
               </div>
             </div>
-            <div style={{flex: 4}}>
+            <div style={{ flex: 4 }}>
               <ResultCount path={['searchRoot', 'results']} />
               <DateHistogram
                 path={['searchRoot', 'releases']}
