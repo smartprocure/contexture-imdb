@@ -1,12 +1,10 @@
 import React from 'react'
 import {Provider} from 'mobx-react'
-import {storiesOf} from '@storybook/react'
 import SearchRoot from 'contexture-react/dist/components/SearchRoot'
 import Types from 'contexture-react/dist/exampleTypes'
 import {ResultCount} from 'contexture-react/dist/example-types/components'
 import Contexture from '../utils/contexture-client'
 import ResultTable from '../components/ResultTable'
-import IMDBCards from '../components/IMDBCards'
 
 let tree = Contexture({
   key: 'root',

@@ -1,8 +1,5 @@
 import React from 'react'
-import _ from 'lodash/fp'
-import * as F from 'futil-js'
 import {Provider} from 'mobx-react'
-import {storiesOf} from '@storybook/react'
 import Contexture from '../utils/contexture-client'
 import {
   Facet,

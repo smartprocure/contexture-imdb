@@ -1,6 +1,5 @@
 import React from 'react'
 import {Provider} from 'mobx-react'
-import {storiesOf} from '@storybook/react'
 import Contexture from '../utils/contexture-client'
 import {
   Facet,
