@@ -1,5 +1,5 @@
 import React from 'react'
-import {Provider} from 'mobx-react'
+import { Provider } from 'mobx-react'
 import Contexture from '../utils/contexture-client'
 import {
   Facet,
@@ -8,7 +8,7 @@ import {
   ResultCount,
   DateHistogram,
 } from 'contexture-react/dist/example-types/components'
-import {Flex} from 'contexture-react/dist/example-types/Flex'
+import { Flex } from 'contexture-react/dist/example-types/Flex'
 import SpacedList from 'contexture-react/dist/example-types/SpacedList'
 import IMDBCards from '../components/IMDBCards'
 
@@ -84,7 +84,7 @@ export default () => (
     <SpacedList>
       <Query path={['searchRoot', 'searchQuery']} />
       <Flex>
-        <div style={{flex: 1}}>
+        <div style={{ flex: 1 }}>
           <SpacedList>
             <div>
               <b>MetaScore</b>
@@ -100,7 +100,7 @@ export default () => (
             </div>
           </SpacedList>
         </div>
-        <div style={{flex: 4}}>
+        <div style={{ flex: 4 }}>
           <ResultCount path={['searchRoot', 'results']} />
           <DateHistogram
             path={['searchRoot', 'releases']}

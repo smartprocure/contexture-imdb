@@ -2,11 +2,11 @@ import 'babel-polyfill'
 import React from 'react'
 import _ from 'lodash/fp'
 import * as F from 'futil-js'
-import {observer} from 'mobx-react'
-import {InjectTreeNode} from 'contexture-react/dist/example-types/components'
+import { observer } from 'mobx-react'
+import { InjectTreeNode } from 'contexture-react/dist/example-types/components'
 
 export default InjectTreeNode(
-  observer(({node}) => (
+  observer(({ node }) => (
     <table>
       <thead>
         <tr>

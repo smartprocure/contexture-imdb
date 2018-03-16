@@ -1,7 +1,7 @@
 import 'babel-polyfill'
 import React from 'react'
-import {storiesOf} from '@storybook/react'
-import {Styles} from 'contexture-react/dist/example-types/components'
+import { storiesOf } from '@storybook/react'
+import { Styles } from 'contexture-react/dist/example-types/components'
 
 let demoBox = {
   backgroundColor: '#333',

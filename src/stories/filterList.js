@@ -1,5 +1,5 @@
 import React from 'react'
-import {Provider} from 'mobx-react'
+import { Provider } from 'mobx-react'
 import Contexture from '../utils/contexture-client'
 import {
   Facet,
@@ -8,10 +8,10 @@ import {
   ResultCount,
   DateHistogram,
 } from 'contexture-react/dist/example-types/components'
-import {Flex} from 'contexture-react/dist/example-types/Flex'
+import { Flex } from 'contexture-react/dist/example-types/Flex'
 import SpacedList from 'contexture-react/dist/example-types/SpacedList'
 import ResultTable from '../components/ResultTable'
-import {FilterList} from '../components/FilterList'
+import { FilterList } from '../components/FilterList'
 import IMDBCards from '../components/IMDBCards'
 
 let formatYear = x => new Date(x).getFullYear() + 1
@@ -99,13 +99,13 @@ export default () => (
     <SpacedList>
       <Query path={['searchRoot', 'searchQuery']} />
       <Flex>
-        <div style={{flex: 1}}>
+        <div style={{ flex: 1 }}>
           <FilterList
             path={['searchRoot', 'criteria']}
             typeComponents={TypeMap}
           />
         </div>
-        <div style={{flex: 4}}>
+        <div style={{ flex: 4 }}>
           <ResultCount path={['searchRoot', 'results']} />
           <DateHistogram
             path={['searchRoot', 'releases']}
