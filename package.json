@@ -13,8 +13,8 @@
     "lodash": "4.17.4",
     "mobx": "3.1.16",
     "mobx-react": "4.2.1",
-    "react": "15.6.1",
-    "react-dom": "15.6.1"
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.17",

@@ -3,16 +3,10 @@ import React from 'react'
 import _ from 'lodash/fp'
 import * as F from 'futil-js'
 import { observer } from 'mobx-react'
+import { InjectTreeNode } from 'contexture-react/dist/example-types/components'
 
-export default observer(({ node }) => (
-  <div>
-    <h1>
-      {node.context.response.results.length
-        ? `Viewing records ${node.context.response.startRecord} - ${
-            node.context.response.endRecord
-          } out of ${node.context.response.totalRecords}`
-        : 'No Results'}
-    </h1>
+export default InjectTreeNode(
+  observer(({ node }) => (
     <table>
       <thead>
         <tr>
@@ -42,5 +36,5 @@ export default observer(({ node }) => (
         )}
       </tbody>
     </table>
-  </div>
-))
+  ))
+)
