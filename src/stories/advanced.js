@@ -26,8 +26,7 @@ let tree = Contexture({
         {
           key: 'searchFacet',
           type: 'facet',
-          field: 'genres.keyword',
-          fieldMode: 'word',
+          field: 'genres',
           context: {
             options: [],
           },

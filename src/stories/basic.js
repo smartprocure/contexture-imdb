@@ -29,8 +29,7 @@ let tree = Contexture({
     {
       key: 'searchFacet',
       type: 'facet',
-      field: 'genres.keyword',
-      fieldMode: 'word',
+      field: 'genres',
       optionsFilter: '',
       context: {
         options: [],
@@ -39,8 +38,7 @@ let tree = Contexture({
     {
       key: 'searchActors',
       type: 'facet',
-      field: 'actors.keyword',
-      fieldMode: 'word',
+      field: 'actors',
       context: {
         options: [],
       },
