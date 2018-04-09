@@ -13,8 +13,8 @@ export default Contexture({
       },
       modeMap: {
         word: '',
-        autocomplete: '.keyword'
-      }
+        autocomplete: '.keyword',
+      },
     },
   },
   providers: {

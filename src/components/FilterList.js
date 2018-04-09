@@ -10,14 +10,14 @@ export let FieldLabel = InjectTreeNode(
 )
 
 export let FilterList = InjectTreeNode(
-  observer(({ node, typeComponents: types }) =>
+  observer(({ node, typeComponents: types }) => (
     <SpacedList>
-      {node.children.map(child =>
+      {node.children.map(child => (
         <div key={child.path}>
           <FieldLabel path={[...child.path]} />
           <Dynamic component={types[child.type]} path={[...child.path]} />
         </div>
-      )}
+      ))}
     </SpacedList>
-  )
+  ))
 )
