@@ -32,7 +32,6 @@ let tree = Contexture({
       key: 'searchQuery',
       type: 'query',
       field: 'title',
-      query: '',
     },
     {
       key: 'criteria',
@@ -50,18 +49,11 @@ let tree = Contexture({
           key: 'searchFacet',
           type: 'facet',
           field: 'genres',
-          optionsFilter: '',
-          context: {
-            options: [],
-          },
         },
         {
           key: 'searchActors',
           type: 'facet',
           field: 'actors',
-          context: {
-            options: [],
-          },
         },
       ],
     },
@@ -69,13 +61,7 @@ let tree = Contexture({
       key: 'results',
       type: 'results',
       pageSize: 6,
-      page: 1,
-      context: {
-        response: {
-          results: [],
-          totalRecords: null,
-        },
-      },
+      page: 1
     },
     {
       key: 'releases',
@@ -83,11 +69,6 @@ let tree = Contexture({
       key_field: 'released',
       value_field: 'imdbVotes',
       interval: '3650d',
-      context: {
-        entries: [],
-        maxDate: null,
-        minDate: null,
-      },
     },
   ],
 })

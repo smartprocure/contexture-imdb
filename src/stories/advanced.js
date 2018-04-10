@@ -27,9 +27,6 @@ let tree = Contexture({
           key: 'searchFacet',
           type: 'facet',
           field: 'genres',
-          context: {
-            options: [],
-          },
         },
       ],
     },
@@ -38,12 +35,6 @@ let tree = Contexture({
       type: 'results',
       pageSize: 10,
       page: 1,
-      context: {
-        response: {
-          results: [],
-          totalRecords: null,
-        },
-      },
     },
   ],
 })
