@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'mobx-react'
-import Contexture from '../utils/contexture-client'
+import Contexture from '../utils/contexture'
 import {
   Facet,
   Range,

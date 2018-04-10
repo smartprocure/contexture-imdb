@@ -3,7 +3,7 @@ import { Provider } from 'mobx-react'
 import SearchRoot from 'contexture-react/dist/components/SearchRoot'
 import Types from 'contexture-react/dist/exampleTypes'
 import { ResultCount } from 'contexture-react/dist/example-types/components'
-import Contexture from '../utils/contexture-client'
+import Contexture from '../utils/contexture'
 import ResultTable from '../components/ResultTable'
 
 let tree = Contexture({

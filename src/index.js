@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MovieResults from './components/MovieResults'
+import App from './stories/filterList'
 
-ReactDOM.render(<MovieResults />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
