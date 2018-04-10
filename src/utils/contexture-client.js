@@ -6,9 +6,7 @@ import service from './searchService'
 export default _.flow(
   observable,
   ContextTree({
-    service: async dto => ({
-      data: await service(dto),
-    }),
+    service,
     types: exampleTypes,
     // debug: true,
     snapshot: toJS,

@@ -13,21 +13,16 @@ export default InjectTreeNode(
           {_.flow(
             _.get('context.response.results[0]._source'),
             _.keys,
-            _.map(F.autoLabel),
-            _.map(x => <th key={x}>{x}</th>)
+            _.map(x => <th key={x}>{F.autoLabel(x)}</th>)
           )(node)}
         </tr>
       </thead>
       <tbody>
         {_.map(
           result => (
-            <tr key={_.uniqueId(result._id)}>
-              {_.map(
-                x => (
-                  <td key={_.uniqueId(JSON.stringify(x))}>
-                    {JSON.stringify(x)}
-                  </td>
-                ),
+            <tr key={result._id}>
+              {F.mapIndexed(
+                (x, key) => <td key={key}>{JSON.stringify(x)}</td>,
                 _.values(result._source)
               )}
             </tr>

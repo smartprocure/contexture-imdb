@@ -11,6 +11,10 @@ export default Contexture({
         index: 'movies',
         type: 'movie',
       },
+      modeMap: {
+        word: '',
+        autocomplete: '.keyword',
+      },
     },
   },
   providers: {
