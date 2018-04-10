@@ -61,7 +61,7 @@ let tree = Contexture({
       key: 'results',
       type: 'results',
       pageSize: 6,
-      page: 1
+      page: 1,
     },
     {
       key: 'releases',
