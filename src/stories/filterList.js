@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash/fp'
 import { Provider } from 'mobx-react'
 import Contexture from '../utils/contexture'
 import {
@@ -25,8 +26,7 @@ let TypeMap = {
 let tree = Contexture({
   key: 'searchRoot',
   type: 'group',
-  join: 'and',
-  schema: 'imdb',
+  schema: 'movies',
   children: [
     {
       key: 'searchQuery',
@@ -36,7 +36,6 @@ let tree = Contexture({
     {
       key: 'criteria',
       type: 'group',
-      join: 'and',
       children: [
         {
           key: 'searchRange',

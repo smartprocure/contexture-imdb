@@ -15,7 +15,7 @@ export default _.flow(
     extend: extendObservable,
     service: Contexture({
       schemas: {
-        imdb: {
+        movies: {
           elasticsearch: {
             index: 'movies',
             type: 'movie',
