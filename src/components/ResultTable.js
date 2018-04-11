@@ -62,7 +62,7 @@ export default InjectTreeNode(
         x => _.isEmpty(node.include) || _.includes(x.field, node.include)
       )
     )(fields)
-    return (
+    return !!getResults(node).length && (
       <Table>
         <thead>
           <tr>
