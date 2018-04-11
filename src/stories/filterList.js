@@ -95,7 +95,7 @@ export default () => (
           <style>
             {`
               .example-table tr:nth-child(even) {
-                  background-color: rgba(0, 0, 0, 0.5)
+                background-color: rgba(0, 0, 0, 0.5)
               }
               .example-table {
                 background: white;
