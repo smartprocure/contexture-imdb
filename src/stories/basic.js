@@ -17,8 +17,7 @@ let formatYear = x => new Date(x).getFullYear() + 1
 let tree = Contexture({
   key: 'searchRoot',
   type: 'group',
-  join: 'and',
-  schema: 'imdb',
+  schema: 'movies',
   children: [
     {
       key: 'searchQuery',

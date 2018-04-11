@@ -6,6 +6,20 @@ import elasticsearch from 'elasticsearch-browser'
 import contextureES from 'contexture-elasticsearch'
 import contextureESTypes from 'contexture-elasticsearch/src/types'
 
+exampleTypes.results.reactors = _.extend(exampleTypes.results.reactors, {
+  sortField: 'self',
+  sortDir: 'self',
+  include: 'self',
+})
+
+let esClient = elasticsearch.Client({
+  apiVersion: '6.0',
+  host:
+    // 'https://y85ukgvi1w:4s1cvayng9@first-cluster-5089088915.us-east-1.bonsaisearch.net',
+    // 'localhost:9200'
+    'https://public-es-demo.smartprocure.us/',
+})
+
 export default _.flow(
   observable,
   ContextTree({
@@ -15,7 +29,7 @@ export default _.flow(
     extend: extendObservable,
     service: Contexture({
       schemas: {
-        imdb: {
+        movies: {
           elasticsearch: {
             index: 'movies',
             type: 'movie',
@@ -28,16 +42,7 @@ export default _.flow(
       },
       providers: {
         elasticsearch: contextureES({
-          getClient: _.memoize(() =>
-            elasticsearch.Client({
-              apiVersion: '6.0',
-              host:
-                // 'https://y85ukgvi1w:4s1cvayng9@first-cluster-5089088915.us-east-1.bonsaisearch.net',
-                'localhost:9200',
-              // Won't work until we enable SSL
-              // 'http://35.163.200.173:9200/',
-            })
-          ),
+          getClient: _.memoize(() => esClient),
           types: contextureESTypes(),
         }),
       },

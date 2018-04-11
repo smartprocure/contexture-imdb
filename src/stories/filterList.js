@@ -25,8 +25,7 @@ let TypeMap = {
 let tree = Contexture({
   key: 'searchRoot',
   type: 'group',
-  join: 'and',
-  schema: 'imdb',
+  schema: 'movies',
   children: [
     {
       key: 'searchQuery',
@@ -36,7 +35,6 @@ let tree = Contexture({
     {
       key: 'criteria',
       type: 'group',
-      join: 'and',
       children: [
         {
           key: 'searchRange',
@@ -94,7 +92,44 @@ export default () => (
           <h1>
             <ResultCount path={['searchRoot', 'results']} />
           </h1>
-          <ResultTable path={['searchRoot', 'results']} />
+          <style>
+            {`
+              .example-table tr:nth-child(even) {
+                background-color: rgba(0, 0, 0, 0.5)
+              }
+              .example-table {
+                background: white;
+                color: #444;
+                border-collapse: collapse;
+              }
+              .example-table td, .example-table th {
+                padding: 5px
+              }
+              .example-table thead {
+                border-bottom: solid 2px #ccc
+              }
+            `}
+          </style>
+          <ResultTable
+            path={['searchRoot', 'results']}
+            fields={{
+              poster: {
+                label: 'Poster',
+                field: 'poster',
+                display: x => <img src={x} width="180" height="270" />,
+                order: 1,
+              },
+              title: {
+                order: 2,
+                Cell: x => <td style={{ color: 'red' }} {...x} />,
+              },
+              year: {
+                order: -2,
+              },
+            }}
+            infer
+            Table={x => <table className="example-table" {...x} />}
+          />
         </div>
       </Flex>
     </SpacedList>

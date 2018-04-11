@@ -10,7 +10,7 @@ let tree = Contexture({
   key: 'root',
   type: 'group',
   join: 'and',
-  schema: 'imdb',
+  schema: 'movies',
   children: [
     {
       key: 'searchRoot',
