@@ -6,6 +6,12 @@ import elasticsearch from 'elasticsearch-browser'
 import contextureES from 'contexture-elasticsearch'
 import contextureESTypes from 'contexture-elasticsearch/src/types'
 
+exampleTypes.results.reactors = _.extend(exampleTypes.results.reactors, {
+  sortField: 'self',
+  sortDir: 'self',
+  include: 'self'
+})
+
 export default _.flow(
   observable,
   ContextTree({
@@ -42,5 +48,6 @@ export default _.flow(
         }),
       },
     }),
+    })
   })
 )
