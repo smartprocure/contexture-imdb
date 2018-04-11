@@ -1,5 +1,4 @@
 import React from 'react'
-import _ from 'lodash/fp'
 import { Provider } from 'mobx-react'
 import Contexture from '../utils/contexture'
 import {
