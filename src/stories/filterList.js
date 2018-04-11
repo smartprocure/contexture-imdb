@@ -110,21 +110,26 @@ export default () => (
               }
             `}
           </style>
-          <ResultTable path={['searchRoot', 'results']} fields={{
-            poster: {
-              label: 'Poster',
-              field: 'poster',
-              display: x => <img src={x} width="180" height="270" />,
-              order: 1
-            },
-            title: {
-              order: 2,
-              Cell: x => <td style={{color:'red'}} {...x} />
-            },
-            year: {
-              order: -2
-            }
-          }} infer Table={x => <table className='example-table' {...x} />} />
+          <ResultTable
+            path={['searchRoot', 'results']}
+            fields={{
+              poster: {
+                label: 'Poster',
+                field: 'poster',
+                display: x => <img src={x} width="180" height="270" />,
+                order: 1,
+              },
+              title: {
+                order: 2,
+                Cell: x => <td style={{ color: 'red' }} {...x} />,
+              },
+              year: {
+                order: -2,
+              },
+            }}
+            infer
+            Table={x => <table className="example-table" {...x} />}
+          />
         </div>
       </Flex>
     </SpacedList>
