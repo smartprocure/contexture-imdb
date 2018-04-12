@@ -2,7 +2,6 @@ import _ from 'lodash/fp'
 import React from 'react'
 import {observer} from 'mobx-react'
 
-
 export let fieldsToOptions = _.map(x => ({value: x.field, ...x}))
 
 export let FieldAdder = observer(

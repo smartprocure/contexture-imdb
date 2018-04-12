@@ -14,7 +14,8 @@ export let applyDefaults = F.mapValuesIndexed((node, field) =>
 )
 export let fromFlatEsMapping = _.mapValues(
   _.flow(
-    x => _.values(x.mappings)[0].properties, // Always 1 type per index
+    // Always 1 type per index
+    x => _.values(x.mappings)[0].properties,
     _.mapValues(({type}) => ({
       typeDefault: F.alias(type, {
         string: 'query',

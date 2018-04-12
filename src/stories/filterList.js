@@ -2,7 +2,7 @@ import _ from 'lodash/fp'
 import * as F from 'futil-js'
 import React from 'react'
 import {fromPromise} from 'mobx-utils'
-import { Provider, inject } from 'mobx-react'
+import {Provider, inject} from 'mobx-react'
 import Contexture, {esClient} from '../utils/contexture'
 import {getESSchemas, flagFields} from '../utils/schema'
 import {
