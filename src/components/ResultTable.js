@@ -5,7 +5,6 @@ import { observer, inject } from 'mobx-react'
 import { observable } from 'mobx'
 import { InjectTreeNode } from 'contexture-react/dist/example-types/components'
 import Popover from 'contexture-react/dist/components/Popover'
-import { table, td } from './Html'
 let withStateLens = state => inject(() => F.lensOf(observable(state)))
 
 let getResults = _.get('context.response.results')
@@ -55,7 +54,7 @@ let Header = withStateLens({ popover: false })(
 )
 
 export default InjectTreeNode(
-  observer(({ node, fields, infer, tree, path, Table = table }) => {
+  observer(({ node, fields, infer, tree, path, Table = 'table' }) => {
     let mutate = tree.mutate(path)
     let schema = _.flow(
       _.merge(infer && inferSchema(node)),
@@ -87,7 +86,7 @@ export default InjectTreeNode(
               x => (
                 <tr key={x._id}>
                   {_.map(
-                    ({ field, display, Cell = td }) => (
+                    ({ field, display, Cell = 'td' }) => (
                       <Cell key={field}>
                         {(display || (x => x))(x._source[field], x._source)}
                       </Cell>
