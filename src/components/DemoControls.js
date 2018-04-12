@@ -24,7 +24,7 @@ export let ListGroupItem = withStateLens({hovering: false})(observer(({hovering,
       borderRadius: '4px',
       ...(F.view(hovering) && {backgroundColor: '#f5f5f5'})
     }}
-    className={'hovering' + F.view(hovering)}
+    className={`hovering${  F.view(hovering)}`}
     {...hover(hovering)}
     {...x}
   />
