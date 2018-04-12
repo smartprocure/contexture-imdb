@@ -1,7 +1,8 @@
 import _ from 'lodash/fp'
 import * as F from 'futil-js'
 import React from 'react'
-import {Provider} from 'mobx-react'
+import {fromPromise} from 'mobx-utils'
+import { Provider, inject } from 'mobx-react'
 import Contexture, {esClient} from '../utils/contexture'
 import {getESSchemas, flagFields} from '../utils/schema'
 import {
@@ -17,10 +18,8 @@ import ResultTable from '../components/ResultTable'
 import {FilterList} from '../components/FilterList'
 import {FieldAdder} from '../components/FieldAdder'
 import Awaiter from '../components/Awaiter'
-import { inject } from 'mobx-react'
 import {ModalPicker, ListGroupPicker, Button} from '../components/DemoControls'
 
-import {fromPromise} from 'mobx-utils'
 let formatYear = x => new Date(x).getFullYear() + 1
 
 let TypeMap = {
