@@ -11,6 +11,7 @@ exampleTypes.results.reactors = _.extend(exampleTypes.results.reactors, {
   sortDir: 'self',
   include: 'self',
 })
+exampleTypes.facet.defaults.values = []
 
 let esClient = elasticsearch.Client({
   apiVersion: '6.0',
