@@ -1,11 +1,10 @@
 import React from 'react'
 import _ from 'lodash/fp'
 import * as F from 'futil-js'
-import { observer, inject } from 'mobx-react'
-import { observable } from 'mobx'
+import { observer } from 'mobx-react'
 import { InjectTreeNode } from 'contexture-react/dist/example-types/components'
 import Popover from 'contexture-react/dist/components/Popover'
-let withStateLens = state => inject(() => F.lensOf(observable(state)))
+import {withStateLens} from '../utils/mobx-react-utils'
 
 let getResults = _.get('context.response.results')
 let buildSchema = F.mapValuesIndexed((val, field) => ({
