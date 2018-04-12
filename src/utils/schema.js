@@ -25,27 +25,21 @@ _.flow(
   fields => ({fields})
 ))
 
-let override = args => _.flow(..._.map(x => (_.isFunction(x) ? x : _.merge(_, x)), args))
-let applyOverrides = overrides => F.mapValuesIndexed(({fields}, schema) => ({
-  fields: overrides[schema]
-    ? override(overrides[schema])(fields)
-    : fields
-}))
-
 export let getSchemas = async client =>
   _.flow(
     fromFlatEsMapping,
-    applyOverrides({
-      movies: [
-        {
+    _.update(
+      'movies.fields',
+      _.flow(
+        _.merge(_, {
           released: {
             label: 'Release Date',
-          }
-        },
-        flagFields({
-          isCommon: ['plot', 'title'],
+          },
+          ...flagFields({
+            isCommon: ['plot', 'title'],
+          })
         }),
         _.omit(['imdbId', 'yearEnded'])
-      ]
-    })
+      )
+    )
   )(await client.indices.getMapping())
