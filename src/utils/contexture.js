@@ -11,8 +11,9 @@ exampleTypes.results.reactors = _.extend(exampleTypes.results.reactors, {
   sortDir: 'self',
   include: 'self',
 })
+exampleTypes.facet.defaults.values = []
 
-let esClient = elasticsearch.Client({
+export let esClient = elasticsearch.Client({
   apiVersion: '6.0',
   host:
     // 'https://y85ukgvi1w:4s1cvayng9@first-cluster-5089088915.us-east-1.bonsaisearch.net',
