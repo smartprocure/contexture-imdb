@@ -9,7 +9,7 @@ import contextureESTypes from 'contexture-elasticsearch/src/types'
 exampleTypes.results.reactors = _.extend(exampleTypes.results.reactors, {
   sortField: 'self',
   sortDir: 'self',
-  include: 'self'
+  include: 'self',
 })
 exampleTypes.facet.defaults.values = []
 
@@ -18,7 +18,7 @@ export let esClient = elasticsearch.Client({
   host:
     // 'https://y85ukgvi1w:4s1cvayng9@first-cluster-5089088915.us-east-1.bonsaisearch.net',
     // 'localhost:9200'
-    'https://public-es-demo.smartprocure.us/'
+    'https://public-es-demo.smartprocure.us/',
 })
 
 export default _.flow(
@@ -47,6 +47,6 @@ export default _.flow(
           types: contextureESTypes(),
         }),
       },
-    })
+    }),
   })
 )

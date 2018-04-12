@@ -1,7 +1,7 @@
 import React from 'react'
-import {observer} from 'mobx-react'
+import { observer } from 'mobx-react'
 
-export default observer(({promise, children}) =>
+export default observer(({ promise, children }) =>
   promise.case({
     pending: () => <div>Loading...</div>,
     rejected: error => <div>Ooops.. {error}</div>,

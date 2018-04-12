@@ -1,9 +1,9 @@
 import _ from 'lodash/fp'
 import React from 'react'
-import {fromPromise} from 'mobx-utils'
-import {Provider, inject} from 'mobx-react'
-import Contexture, {esClient} from '../utils/contexture'
-import {getESSchemas, flagFields} from '../utils/schema'
+import { fromPromise } from 'mobx-utils'
+import { Provider, inject } from 'mobx-react'
+import Contexture, { esClient } from '../utils/contexture'
+import { getESSchemas, flagFields } from '../utils/schema'
 import {
   Facet,
   Range,
@@ -11,13 +11,17 @@ import {
   ResultCount,
   DateHistogram,
 } from 'contexture-react/dist/example-types/components'
-import {Flex} from 'contexture-react/dist/example-types/Flex'
+import { Flex } from 'contexture-react/dist/example-types/Flex'
 import SpacedList from 'contexture-react/dist/example-types/SpacedList'
 import ResultTable from '../components/ResultTable'
-import {FilterList} from '../components/FilterList'
-import {FieldAdder} from '../components/FieldAdder'
+import { FilterList } from '../components/FilterList'
+import { FieldAdder } from '../components/FieldAdder'
 import Awaiter from '../components/Awaiter'
-import {ModalPicker, ListGroupPicker, Button} from '../components/DemoControls'
+import {
+  ModalPicker,
+  ListGroupPicker,
+  Button,
+} from '../components/DemoControls'
 
 let formatYear = x => new Date(x).getFullYear() + 1
 
@@ -25,7 +29,7 @@ let TypeMap = {
   facet: Facet,
   number: Range,
   query: Query,
-  date: Range// FIX
+  date: Range, // FIX
 }
 
 let tree = Contexture({
@@ -105,12 +109,11 @@ let schemas = fromPromise(
   )
 )
 
-
 // Pre apply some props
 let FieldPicker = inject(() => ({
   Select: ListGroupPicker,
   Button,
-  label: '+ Include Additional Filter'
+  label: '+ Include Additional Filter',
 }))(ModalPicker)
 
 export default () => (
@@ -120,7 +123,7 @@ export default () => (
         <SpacedList>
           <Query path={['searchRoot', 'searchQuery']} />
           <Flex>
-            <div style={{flex: 1}}>
+            <div style={{ flex: 1 }}>
               <FilterList
                 path={['searchRoot', 'criteria']}
                 typeComponents={TypeMap}
@@ -132,7 +135,7 @@ export default () => (
                 FieldPicker={FieldPicker}
               />
             </div>
-            <div style={{flex: 4}}>
+            <div style={{ flex: 4 }}>
               <ResultCount path={['searchRoot', 'results']} />
               <DateHistogram
                 path={['searchRoot', 'releases']}
@@ -167,7 +170,7 @@ export default () => (
                   },
                   title: {
                     order: 2,
-                    Cell: x => <td style={{color: 'red'}} {...x} />,
+                    Cell: x => <td style={{ color: 'red' }} {...x} />,
                   },
                   year: {
                     order: -2,

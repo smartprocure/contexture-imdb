@@ -16,7 +16,7 @@ export let fromFlatEsMapping = _.mapValues(
   _.flow(
     // Always 1 type per index
     x => _.values(x.mappings)[0].properties,
-    _.mapValues(({type}) => ({
+    _.mapValues(({ type }) => ({
       typeDefault: F.alias(type, {
         string: 'query',
         text: 'facet',
@@ -27,7 +27,7 @@ export let fromFlatEsMapping = _.mapValues(
       // typeOptions: [],
     })),
     applyDefaults,
-    fields => ({fields})
+    fields => ({ fields })
   )
 )
 export let getESSchemas = client =>

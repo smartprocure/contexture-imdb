@@ -1,9 +1,9 @@
 import React from 'react'
 import * as F from 'futil-js'
-import {observer} from 'mobx-react'
+import { observer } from 'mobx-react'
 
 export default observer(
-  ({isOpen, children}) =>
+  ({ isOpen, children }) =>
     F.view(isOpen) && (
       <div
         style={{
@@ -15,7 +15,8 @@ export default observer(
           backgroundColor: 'rgba(0,0,0,0.3)',
           padding: 50,
         }}
-        onClick={F.off(isOpen)}>
+        onClick={F.off(isOpen)}
+      >
         <div
           style={{
             backgroundColor: '#fff',
@@ -24,9 +25,10 @@ export default observer(
             // minHeight: 300,
             margin: '0 auto',
             padding: 30,
-            color: '#555'
+            color: '#555',
           }}
-          onClick={e => e.stopPropagation()}>
+          onClick={e => e.stopPropagation()}
+        >
           {children}
         </div>
       </div>

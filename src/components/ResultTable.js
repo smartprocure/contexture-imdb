@@ -4,7 +4,7 @@ import * as F from 'futil-js'
 import { observer } from 'mobx-react'
 import { InjectTreeNode } from 'contexture-react/dist/example-types/components'
 import Popover from 'contexture-react/dist/components/Popover'
-import {withStateLens} from '../utils/mobx-react-utils'
+import { withStateLens } from '../utils/mobx-react-utils'
 
 let getResults = _.get('context.response.results')
 let buildSchema = F.mapValuesIndexed((val, field) => ({
@@ -21,7 +21,8 @@ let Header = withStateLens({ popover: false })(
   observer(({ popover, field: { field, label }, mutate, schema, node }) => (
     <th>
       <a onClick={F.flip(popover)}>
-        {label} {field == node.sortField && (node.sortDir === 'asc' ? '^' : 'v')}
+        {label}{' '}
+        {field == node.sortField && (node.sortDir === 'asc' ? '^' : 'v')}
       </a>
       <Popover show={popover}>
         <div style={{ textAlign: 'left' }}>
