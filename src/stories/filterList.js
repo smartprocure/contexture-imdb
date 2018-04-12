@@ -17,8 +17,7 @@ import ResultTable from '../components/ResultTable'
 import {FilterList} from '../components/FilterList'
 import {FieldAdder} from '../components/FieldAdder'
 import Awaiter from '../components/Awaiter'
-import {applyDefaults} from '../utils/schema'
-import { observer, inject } from 'mobx-react'
+import { inject } from 'mobx-react'
 import {ModalPicker, ListGroupPicker, Button} from '../components/DemoControls'
 
 import {fromPromise} from 'mobx-utils'
@@ -80,14 +79,14 @@ let tree = Contexture({
 })
 
 // TODO: example story book for field picker only
-let schema = applyDefaults({
-  directors: {
-    typeDefault: 'facet',
-  },
-  runtimeMinutes: {
-    typeDefault: 'number',
-  },
-})
+// let schema = applyDefaults({
+//   directors: {
+//     typeDefault: 'facet',
+//   },
+//   runtimeMinutes: {
+//     typeDefault: 'number',
+//   },
+// })
 let schemas = fromPromise(getSchemas(esClient))
 
 // Pre apply some props

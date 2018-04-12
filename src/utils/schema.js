@@ -16,6 +16,7 @@ _.flow(
       string: 'query',
       text: 'facet',
       long: 'number',
+      float: 'number',
       double: 'number',
     }),
     // typeOptions: [],
