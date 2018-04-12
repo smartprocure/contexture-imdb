@@ -3,7 +3,7 @@ import * as F from 'futil-js'
 import React from 'react'
 import {Provider} from 'mobx-react'
 import Contexture, {esClient} from '../utils/contexture'
-import {getSchemas} from '../utils/schema'
+import {getESSchemas, flagFields} from '../utils/schema'
 import {
   Facet,
   Range,
@@ -27,6 +27,7 @@ let TypeMap = {
   facet: Facet,
   number: Range,
   query: Query,
+  date: Range// FIX
 }
 
 let tree = Contexture({
@@ -87,7 +88,25 @@ let tree = Contexture({
 //     typeDefault: 'number',
 //   },
 // })
-let schemas = fromPromise(getSchemas(esClient))
+let schemas = fromPromise(
+  getESSchemas(esClient).then(
+    _.update(
+      'movies.fields',
+      _.flow(
+        _.merge(_, {
+          released: {
+            label: 'Release Date',
+          },
+          ...flagFields({
+            isCommon: ['plot', 'title'],
+          }),
+        }),
+        _.omit(['imdbId', 'yearEnded'])
+      )
+    )
+  )
+)
+
 
 // Pre apply some props
 let FieldPicker = inject(() => ({
