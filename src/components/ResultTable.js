@@ -21,7 +21,7 @@ let Header = withStateLens({ popover: false })(
   observer(({ popover, field: { field, label }, mutate, schema, node }) => (
     <th>
       <a onClick={F.flip(popover)}>
-        {label} {field == node.sortField && (node.sortDir == 'asc' ? '^' : 'v')}
+        {label} {field == node.sortField && (node.sortDir === 'asc' ? '^' : 'v')}
       </a>
       <Popover show={popover}>
         <div style={{ textAlign: 'left' }}>
