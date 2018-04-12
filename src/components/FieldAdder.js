@@ -55,7 +55,7 @@ export let FieldAdder = withStateLens({isOpen: false})(
           borderRadius: '5px',
         }}
         onClick={F.on(isOpen)}>
-        Add
+        + Include Additional Filter
       </button>
     </div>
   )
