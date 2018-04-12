@@ -12,7 +12,8 @@ import { Flex } from 'contexture-react/dist/example-types/Flex'
 import SpacedList from 'contexture-react/dist/example-types/SpacedList'
 import ResultTable from '../components/ResultTable'
 import { FilterList } from '../components/FilterList'
-import IMDBCards from '../components/IMDBCards'
+import { FieldAdder } from '../components/FieldAdder'
+import {applyDefaults} from '../utils/schema'
 
 let formatYear = x => new Date(x).getFullYear() + 1
 
@@ -51,7 +52,7 @@ let tree = Contexture({
         {
           key: 'searchActors',
           type: 'facet',
-          field: 'actors',
+          field: 'actors'
         },
       ],
     },
@@ -71,6 +72,14 @@ let tree = Contexture({
   ],
 })
 
+let schema = applyDefaults({
+  directors: {
+    typeDefault: 'facet',
+  },
+  runtimeMinutes: {
+    typeDefault: 'number'
+  }
+})
 export default () => (
   <Provider tree={tree}>
     <SpacedList>
@@ -81,6 +90,7 @@ export default () => (
             path={['searchRoot', 'criteria']}
             typeComponents={TypeMap}
           />
+          <FieldAdder fields={schema} path={['searchRoot', 'criteria']} tree={tree} />
         </div>
         <div style={{ flex: 4 }}>
           <ResultCount path={['searchRoot', 'results']} />
@@ -88,10 +98,6 @@ export default () => (
             path={['searchRoot', 'releases']}
             format={formatYear}
           />
-          <IMDBCards path={['searchRoot', 'results']} />
-          <h1>
-            <ResultCount path={['searchRoot', 'results']} />
-          </h1>
           <style>
             {`
               .example-table tr:nth-child(even) {
