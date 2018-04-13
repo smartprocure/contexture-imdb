@@ -34,19 +34,19 @@ export let ListGroupItem = withStateLens({ hovering: false })(
   ))
 )
 
-const TextHighlight = ({pattern, text, Wrap = 'i'}) =>
+const TextHighlight = ({ pattern, text, Wrap = 'i' }) =>
   pattern
     ? F.highlight('<>', '<>', pattern, text)
         .split('<>')
         .map((x, i) => (i % 2 ? <Wrap key={i}>{x}</Wrap> : x))
     : text
 
-let Highlight = x => <b style={{backgroundColor: 'yellow'}} {...x} />
+let Highlight = x => <b style={{ backgroundColor: 'yellow' }} {...x} />
 
 export let ListGroupPicker = withStateLens({
   filter: '',
 })(
-  observer(({options, onChange, filter}) => (
+  observer(({ options, onChange, filter }) => (
     <div>
       <input
         {...value(filter)}
@@ -56,12 +56,12 @@ export let ListGroupPicker = withStateLens({
           border: 'solid 1px #efefef',
           borderRadius: '50px',
           boxSizing: 'border-box',
-          outline: 'none'
+          outline: 'none',
         }}
-        placeholder='Find Filter...'
+        placeholder="Find Filter..."
       />
       {_.map(
-        ({value, label}) => (
+        ({ value, label }) => (
           <ListGroupItem key={value}>
             <a onClick={() => onChange(value)}>
               <TextHighlight
