@@ -1,8 +1,10 @@
 import _ from 'lodash/fp'
 import * as F from 'futil-js'
 import React from 'react'
-import { observer } from 'mobx-react'
+import { observable } from 'mobx'
+import { observer, inject } from 'mobx-react'
 import { hover } from 'contexture-react/dist/mobx-react-utils'
+import { value } from 'contexture-react/dist/actout'
 import { withStateLens } from '../utils/mobx-react-utils'
 import Modal from './Modal'
 
@@ -32,15 +34,39 @@ export let ListGroupItem = withStateLens({ hovering: false })(
     />
   ))
 )
-export let ListGroupPicker = observer(({ options, onChange }) =>
-  _.map(
-    ({ value, label }) => (
-      <ListGroupItem key={value}>
-        <a onClick={() => onChange(value)}>{label}</a>
-      </ListGroupItem>
-    ),
-    options
-  )
+
+
+// SAFER than main app - no innerHTML
+const TextHighlight = ({pattern, text, Wrap = 'i'}) =>
+  pattern
+    ? F.highlight('<>', '<>', pattern, text)
+        .split('<>')
+        .map((x, i) => (i % 2 == 1 ? <Wrap key={i}>{x}</Wrap> : x))
+    : text
+
+let Highlight = x => <b style={{backgroundColor: 'yellow'}} {...x} />
+export let ListGroupPicker = withStateLens({
+  filter: '',
+})(
+  observer(({options, onChange, filter}) => (
+    <div>
+      <input {...value(filter)} style={{ width: '100%', padding: '5px', borderRadius: '50px'}} />
+      {_.map(
+        ({value, label}) => (
+          <ListGroupItem key={value}>
+            <a onClick={() => onChange(value)}>
+              <TextHighlight
+                text={label}
+                pattern={F.view(filter)}
+                Wrap={Highlight}
+              />
+            </a>
+          </ListGroupItem>
+        ),
+        _.filter(x => F.matchAllWords(F.view(filter))(x.label), options)
+      )}
+    </div>
+  ))
 )
 
 export let ModalPicker = withStateLens({ isOpen: false })(
