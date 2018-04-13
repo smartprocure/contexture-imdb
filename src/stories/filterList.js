@@ -133,6 +133,7 @@ export default () => (
                 path={['searchRoot', 'criteria']}
                 fields={schemas.movies.fields}
                 FieldPicker={FieldPicker}
+                uniqueFields
               />
             </div>
             <div style={{ flex: 4 }}>
