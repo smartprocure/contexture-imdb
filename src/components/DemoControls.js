@@ -1,8 +1,7 @@
 import _ from 'lodash/fp'
 import * as F from 'futil-js'
 import React from 'react'
-import { observable } from 'mobx'
-import { observer, inject } from 'mobx-react'
+import { observer } from 'mobx-react'
 import { hover } from 'contexture-react/dist/mobx-react-utils'
 import { value } from 'contexture-react/dist/actout'
 import { withStateLens } from '../utils/mobx-react-utils'
@@ -35,16 +34,15 @@ export let ListGroupItem = withStateLens({ hovering: false })(
   ))
 )
 
-
-// SAFER than main app - no innerHTML
 const TextHighlight = ({pattern, text, Wrap = 'i'}) =>
   pattern
     ? F.highlight('<>', '<>', pattern, text)
         .split('<>')
-        .map((x, i) => (i % 2 == 1 ? <Wrap key={i}>{x}</Wrap> : x))
+        .map((x, i) => (i % 2 ? <Wrap key={i}>{x}</Wrap> : x))
     : text
 
 let Highlight = x => <b style={{backgroundColor: 'yellow'}} {...x} />
+
 export let ListGroupPicker = withStateLens({
   filter: '',
 })(
