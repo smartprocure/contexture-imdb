@@ -48,7 +48,18 @@ export let ListGroupPicker = withStateLens({
 })(
   observer(({options, onChange, filter}) => (
     <div>
-      <input {...value(filter)} style={{ width: '100%', padding: '5px', borderRadius: '50px'}} />
+      <input
+        {...value(filter)}
+        style={{
+          width: '100%',
+          padding: '5px 15px',
+          border: 'solid 1px #efefef',
+          borderRadius: '50px',
+          boxSizing: 'border-box',
+          outline: 'none'
+        }}
+        placeholder='Find Filter...'
+      />
       {_.map(
         ({value, label}) => (
           <ListGroupItem key={value}>
